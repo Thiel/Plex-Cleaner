@@ -846,7 +846,9 @@ if not Settings['LogFile'] == "":
     logging.captureWarnings(True)
 
 if Token == "":
-    if not Settings['Username'] == "":
+    if not Settings['Token'] == "":
+        Token = Settings['Token']
+    elif not Settings['Username'] == "":
         Settings['Token'] = getToken(Settings['Username'], Settings['Password'])
         if Settings['Token'] == "":
             log("Error getting token, trying without...", True)
